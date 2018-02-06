@@ -101,14 +101,16 @@ run_target('size', command: [size, exe.full_path(), '-B'], depends: exe)
 # STlink programmer related commands
 run_target('probe', command: [stinfo, '--probe'])
 run_target('upload', command: [stflash, 'write', exe.full_path() + '.hex', '0x08000000'], depends: exe)
+run_target('reset', command: [stinfo, '--reset'])
 
 if meson.is_cross_build()
    message('cross compiling for ' + cputype)
-   message('     \n                  ninja - generates elf file.
-                  ninja hex - generates hex file.
-                  ninja upload - upload hex file to stm32 via stlink programmer.
-                  ninja probe - probe stlink programmer.
-                  ninja size - gives the summary of hex file size.
-                  (C) Amitesh Singh ')
+   message('\n              ninja           - generates elf file.
+              ninja hex       - generates hex file.
+              ninja upload    - upload hex file to stm32 via stlink programmer.
+              ninja probe     - probe stlink programmer.
+              ninja size      - gives the summary of hex file size.
+              ninja reset     - reset the stm32.
+              (C) Amitesh Singh 2018\n')
 endif
 

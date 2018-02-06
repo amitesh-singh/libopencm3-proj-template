@@ -31,6 +31,10 @@ ninja upload - upload hex file to stm32 via stlink programmer.
 ```shell  
 $ ninja upload  
 ```
+ninja reset - reset the stm32 mcu.  
+```shell
+$ ninja reset
+```
 
 A typical working example:
 ```shell
